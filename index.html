@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hangman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
+
+</head>
+<body>
+    <img src="img/hangman.png" alt="game image">
+    <form class="main">
+        <fieldset id="startFieldSet" class="one">
+            <p>Enter player Name:</p>
+            <div>
+                <input type="text" id="playerInput" placeholder="Player name"/>
+                <button id="addPlayerBtn" type="button">Add player</button>  
+            </div>
+            <p>Enter word for guessing:</p>
+            <div>
+                <input type="text" id="wordInput" placeholder="Game word"/>
+                <button id="addWordBtn" type="button">Add words</button>
+            </div>
+            <p>Select or delete player:</p>
+            <div>
+                <input type="text" id="playerListInput" list="playersList" placeholder="Select player"/>
+                <datalist id="playersList"></datalist>
+                <button id="deletePlayerBtn" type="button">Delete player</button> 
+            </div>
+            <p>Select or delete word:</p>
+            <div>
+                <input type="text" id="wordListInput" list="wordsList" placeholder="Select starting word"/>
+                <datalist id="wordsList"></datalist>
+                <button id="deleteWordBtn" type="button">Delete word</button>
+            </div>
+
+            <div>
+                <button id="startGameBtn" type="button" class="start-btn">Start game</button>
+                <button id="hightScoreBtn" type="button" class="score-btn">Score</button>
+            </div>
+
+        </fieldset>
+
+        <fieldset id="gameFieldSet" class="two">
+            <div class="topUi">
+                <div class="lives">
+                    <div>Player: <span id="playerName"></span></span></div>
+                    <div>Lives: <span id="livesSpan"></span></div>
+                    <div>Time: <span id="time"></span></div>
+                    <div>Score: <span id="score"></span></div>
+                </div>
+                <button id="restartGame" type="button">Restart Game</button>
+            </div>
+            <div class="wrongGuesses">
+                <p>Wrong guesses:</p>
+                <ul id="wrongGuesses">
+                </ul>
+            </div>
+            <div class="bottom-part">
+                <div class="letters">
+                    <div>
+                        <input type="text" id="enterLetterInput" maxlength="1" minlength="1" placeholder="Enter letter"/>
+                        <button id="guessLetterBtn" type="button">Check letter</button>
+                    </div>
+                    <div id="guessingWord" class="guessingWord"></div>
+                </div>
+                <div class="words">
+                    <p>Guessed words:</p>
+                    <ol id="guessedWords">
+                    </ol>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Score</h2>
+            </div>
+            <div id="modal-body" class="modal-body">
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
