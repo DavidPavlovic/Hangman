@@ -39,6 +39,7 @@ const startGameButton = document.getElementById('startGameBtn');
 const checkLetterButton = document.getElementById('guessLetterBtn');
 const restartButton = document.getElementById('restartGame');
 const hightScoreButton = document.getElementById('hightScoreBtn');
+const clearStorageButton = document.getElementById('clearStorageBtn');
 
 // Inputs
 const playerInput = document.getElementById('playerInput');
@@ -52,6 +53,7 @@ deletePlayerButton.addEventListener('click', deletePlayer);
 deleteWordButton.addEventListener('click', deleteWord);
 checkLetterButton.addEventListener('click', checkLetter);
 restartButton.addEventListener('click', restartGame);
+clearStorageBtn.addEventListener('click', clearStorage);
 // When the user clicks the button, open the modal 
 hightScoreButton.onclick = function() {
     modal.style.display = "block";
@@ -74,7 +76,7 @@ window.onload = function() {
 function startGame() {
     const selectedPlayer = document.getElementById('playerListInput').value;
     const selectedWord = document.getElementById('wordListInput').value;
-    startingWord = selectedWord;
+    startingWord = selectedWord.toLowerCase();
     cPlayer = selectedPlayer;
     if(playerArray.indexOf(selectedPlayer) === -1 || wordsArray.indexOf(selectedWord) === -1) {
         alert('Couldn\'t find player or game word name.');
@@ -278,4 +280,9 @@ function displayPlayers() {
             modalBody.appendChild(myDiv);
         }
     }
+}
+
+function clearStorage() {
+    localStorage.clear();
+    restartGame();
 }
